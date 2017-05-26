@@ -1,5 +1,5 @@
 import {
-  AfterContentChecked,
+  AfterViewChecked,
   Component,
   OnInit
 } from '@angular/core';
@@ -31,12 +31,11 @@ import { TableExport } from 'tableexport';
    */
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit, AfterContentChecked {
+export class HomeComponent implements OnInit, AfterViewChecked {
   /**
    * Set our default values
    */
   public localState = {
-    value: '' ,
     data: [
       {
         name: 'Thor Walton',
@@ -75,15 +74,13 @@ export class HomeComponent implements OnInit, AfterContentChecked {
      */
   }
 
-  public ngAfterContentChecked() {
-    this.te = new TableExport(document.querySelector('#default-table'), {
-      formats: ['xlsx', 'xls', 'csv', 'txt']
-    }).reset();
+  public ngAfterViewChecked() {
+    // NOTE: the `reset` is to prevent multiple renders on state change
+    TableExport(document.querySelector('#default-table')).reset();
   }
 
-  public submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
+  public submitState(data: string) {
+    console.log('submitState', data);
+    this.appState.set('data', data);
   }
 }
