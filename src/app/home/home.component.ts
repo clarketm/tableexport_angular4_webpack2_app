@@ -1,4 +1,5 @@
 import {
+  AfterContentChecked,
   Component,
   OnInit
 } from '@angular/core';
@@ -6,7 +7,7 @@ import {
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLargeDirective } from './x-large';
-import {TableExport} from 'tableexport';
+import { TableExport } from 'tableexport';
 
 @Component({
   /**
@@ -30,11 +31,35 @@ import {TableExport} from 'tableexport';
    */
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterContentChecked {
   /**
    * Set our default values
    */
-  public localState = { value: '' };
+  public localState = {
+    value: '' ,
+    data: [
+      {
+        name: 'Thor Walton',
+        position: 'Regional Director',
+        age: 45,
+        salary: '$98,540'
+      },
+      {
+        name: 'Travis Clarke',
+        position: 'Software Engineer',
+        age: 30,
+        salary: '$275,000'
+      },
+      {
+        name: 'Suki Burks',
+        position: 'Office Manager',
+        age: 22,
+        salary: '$67,670'
+      }
+    ]
+  };
+
+  public te: TableExport;
   /**
    * TypeScript public modifiers
    */
@@ -50,10 +75,10 @@ export class HomeComponent implements OnInit {
      */
   }
 
-  public ngAfterContentInit() {
-    new TableExport(document.querySelector('#default-table'), {
+  public ngAfterContentChecked() {
+    this.te = new TableExport(document.querySelector('#default-table'), {
       formats: ['xlsx', 'xls', 'csv', 'txt']
-    });
+    }).reset();
   }
 
   public submitState(value: string) {

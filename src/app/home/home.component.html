@@ -23,23 +23,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Thor Walton</td>
-        <td>Regional Director</td>
-        <td>45</td>
-        <td>$98,540</td>
-      </tr>
-      <tr>
-        <td>Travis Clarke</td>
-        <td>Software Engineer</td>
-        <td>30</td>
-        <td>$275,000</td>
-      </tr>
-      <tr>
-        <td>Suki Burks</td>
-        <td>Office Manager</td>
-        <td>22</td>
-        <td>$67,670</td>
+      <tr *ngFor="let item of localState.data">
+        <td>{{ item.name }}</td>
+        <td>{{ item.position }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.salary }}</td>
       </tr>
       </tbody>
       <tfoot>
@@ -55,9 +43,9 @@
     <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
 
       <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
+        [value]="localState.data[1].salary"
+        (input)="localState.data[1].salary = $event.target.value"
+        placeholder="Change my salary"
         autofocus>
 
       <button>Submit Value</button>
