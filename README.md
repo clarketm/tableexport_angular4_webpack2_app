@@ -2,7 +2,12 @@
 
 This project is a simple app demonstrating the use of [TableExport](https://github.com/clarketm/TableExport), [Angular 4](https://angular.io/), and [Webpack2](https://webpack.js.org/). It is build **directly** on top of the [Angular4 Webpack Starter](https://github.com/AngularClass/angular-starter) starter by [AngularClass](https://github.com/AngularClass).
 
+<br>
 ### [Angular4 Webpack Starter](https://github.com/AngularClass/angular-starter) README below:
+
+<br>
+<br>
+<br>
 
 <p align="center">
   <a href="http://courses.angularclass.com/courses/angular-2-fundamentals?utm_source=github-angular2-webpack-starter&utm_medium=open-source&utm_campaign=webpackstarter" target="_blank">
