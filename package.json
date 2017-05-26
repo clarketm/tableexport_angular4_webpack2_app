@@ -1,6 +1,6 @@
 {
   "name": "tableexport_angular4_webpack2_app",
-  "version": "6.0.0",
+  "version": "1.0.0",
   "description": "A TableExport, Angular 4, and Webpack 2 Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
   "keywords": [
     "angular",
