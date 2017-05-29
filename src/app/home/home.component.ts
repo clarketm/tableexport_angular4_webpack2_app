@@ -7,7 +7,12 @@ import {
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLargeDirective } from './x-large';
+
 import { TableExport } from 'tableexport';
+// **** jQuery **************************
+// import $ from 'jquery';
+// import 'tableexport';
+// **************************************
 
 @Component({
   /**
@@ -76,7 +81,10 @@ export class HomeComponent implements OnInit, AfterViewChecked {
 
   public ngAfterViewChecked() {
     // NOTE: the `reset` is to prevent multiple renders on state change
-    TableExport(document.querySelector('#default-table')).reset();
+    new TableExport(document.querySelector('#default-table')).reset();
+    // **** jQuery **************************
+    // $('#default-table').tableExport().reset();
+    // **************************************
   }
 
   public submitState(data: string) {
